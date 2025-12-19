@@ -4,7 +4,7 @@
 
 ## Overview
 
-A mock-up website for a fictional game company. Three games are available to play in the website:
+A mock-up website for a fictional game company. Consist of a landing page, a game-browsing page, and the games themselves. Three games are available to play in the website:
 
 1. Rock, Paper, Scissors
 2. Guess the Number
