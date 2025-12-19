@@ -16,7 +16,7 @@ let givenTime;
 function initGame() {
     gameActive = false;
     currentScore = 0;
-    givenTime = 10;
+    givenTime = 30;
     scoreboard.innerHTML = currentScore;
     timer.innerHTML = givenTime;
     gameStartSection.style = 'display: block;'
