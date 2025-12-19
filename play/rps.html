@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors - RevoFun</title>
+    <style>
+        .choice-container:hover {cursor: pointer;}
+    </style>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./">Play other game</a>
+            <a href="../"><h1>RevoFun</h1></a>
+        </nav>
+    </header>
+    <main>
+        <h2>Rock Paper Scissors</h2>
+        <section id="game-start">
+            <p>Pick one:</p>
+            <div id="choice-list" style="display: flex;">
+                <div id="rock" class="choice-container">
+                    <img src="../assets/rps/rock.png" alt="Rock icon">
+                    <h3>Rock</h3>
+                </div>
+                <div id="paper" class="choice-container">
+                    <img src="../assets/rps/paper.png" alt="Paper icon">
+                    <h3>Paper</h3>
+                </div>
+                <div id="scissors" class="choice-container">
+                    <img src="../assets/rps/scissors.png" alt="Scissors icon">
+                    <h3>Scissors</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="game-end" style="display: none;">
+            <!-- add win/lost result here -->
+            <h2 id="result-message"></h2>
+            <button id="restart-btn">Play again</button>
+        </section>
+    </main>
+    <script src="rps.js"></script>
+</body>
+</html>

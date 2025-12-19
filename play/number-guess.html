@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number - RevoFun</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="./">Play other game</a>
+            <a href="../"><h1>RevoFun</h1></a>
+        </nav>
+    </header>
+    <main>
+        
+        <h2>Guess the Number</h2>
+        <div id="game-start">
+            <p>Guess the number between 1 to 100!</p>
+            <input type="number" id="answer" min="1" max="100">
+            <button type="button" id="answer-btn">Guess</button>
+            <p id="feedback"></p>
+            <p>Attempts left: </p>
+            <p id="attempts-left"></p>
+            <p>Guessed numbers:</p>
+            <div id="guessed-numbers" style="display: flex;">
+                
+            </div>
+        </div>
+
+        <div id="game-end" style="display: none;">
+             <p id="result"></p>
+            <button id="restart-btn">Play again</button>
+        </div>
+    </main>
+    <script src="number-guess.js"></script>
+</body>
+</html>
