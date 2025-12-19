@@ -17,20 +17,15 @@ header {
 nav {
     display: flex;
     justify-content: right;
-    column-gap: 15px;
 }
 
-/* landing page */
+.games-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+}
 
-.hero {
+.game-container {
     display: flex;
-    justify-content: center;
-}
-
-.game-left-position, .game-right-position {
-    display: flex;
-}
-
-.game-right-position {
-    flex-direction: row-reverse;
+    flex-direction: column;
+    align-items: center;
 }

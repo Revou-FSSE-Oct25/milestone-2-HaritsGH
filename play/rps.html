@@ -7,6 +7,7 @@
     <style>
         .choice-container:hover {cursor: pointer;}
     </style>
+    <link rel="stylesheet" href="../style/games/rps.css">
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
 </head>
 <body>
@@ -20,7 +21,7 @@
         <h2>Rock Paper Scissors</h2>
         <section id="game-start">
             <p>Pick one:</p>
-            <div id="choice-list" style="display: flex;">
+            <div id="choice-list">
                 <div id="rock" class="choice-container">
                     <img src="../assets/rps/rock.png" alt="Rock icon">
                     <h3>Rock</h3>
@@ -36,9 +37,9 @@
             </div>
         </section>
 
-        <section id="game-end" style="display: none;">
+        <section id="game-end" class="hide">
             <!-- add win/lost result here -->
-            <h2 id="result-message"></h2>
+            <h3 id="result-message"></h3>
             <button id="restart-btn">Play again</button>
         </section>
     </main>

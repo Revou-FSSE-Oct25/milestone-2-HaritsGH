@@ -19,7 +19,7 @@ function initGame() {
     givenTime = 30;
     scoreboard.innerHTML = currentScore;
     timer.innerHTML = givenTime;
-    gameStartSection.style = 'display: block;'
+    gameStartSection.style = 'display: flex;'
     gameEndSection.style = 'display: none;'
 }
 

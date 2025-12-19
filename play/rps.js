@@ -46,14 +46,14 @@ function playGame(chosen) {
     let resultMessage = processChoice(chosen.id, cpuChoice)
     resultMessage !== 'Draw' ? resultMessage = 'You ' + resultMessage : 'Draw';
     resultMsg.innerHTML = resultMessage;
-    console.log('CPU chose', cpuChoice)
-    console.log(resultMessage)
+    // console.log('CPU chose', cpuChoice)
+    // console.log(resultMessage)
     gameStartSection.style = 'display: none;'
-    gameEndSection.style = 'display: block;'
+    gameEndSection.style = 'display: flex;'
 }
 
 function restartGame() {
-    console.log('game restart')
+    // console.log('game restart')
     resultMsg.innerHTML = '';
     gameStartSection.style = 'display: block;'
     gameEndSection.style = 'display: none;'

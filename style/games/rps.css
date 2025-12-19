@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 20px 50px;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+
+section {
+    width: 100%;
+}
+
+section p {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#choice-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+    text-align: center;
+}
+
+#game-end {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
