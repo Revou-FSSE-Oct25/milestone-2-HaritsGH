@@ -10,31 +10,33 @@ const gameEndSection = document.getElementById('game-end')
 const restartBtn = document.getElementById('restart-btn')
 
 // game variables
+let gameRestart = false;
 let targetNumber;
-let attemptsRemaining = Number(attemptsLeftElem.innerHTML);
+let attemptsRemaining = Number(attemptsLeftElem.textContent);
 let guessedNumList;
 
 // functions
 function generateRandomNumber(min, max) {
     targetNumber = Math.floor(Math.random() * (max - min) + min)
-    console.log('target number', targetNumber)
 }
 
 function initGame() {
+    if (gameRestart) { restartBtn.removeEventListener('click', gameRestartEvent); };
+    initEventListener();
     generateRandomNumber(1, 100);
-    guessInput.innerHTML = '';
-    attemptsLeftElem.innerHTML = '10';
+    guessInput.textContent = '';
+    attemptsLeftElem.textContent = '10';
     attemptsRemaining = Number(attemptsLeftElem.textContent)
-    guessedNumbers.innerHTML = '';
+    guessedNumbers.textContent = '';
     guessedNumList = [];
-    feedbackMsg.innerHTML = '';
+    feedbackMsg.textContent = '';
     gameStartSection.style = 'display: block;';
     gameEndSection.style = 'display: none;';
 }
 
 function addGuessedNumber(answer) {
     const toAdd = document.createElement('span');
-    toAdd.textContent = answer;
+    toAdd.textContent = String(answer);
     toAdd.className = 'guessed';
     toAdd.style = 'margin-left: 5px;';
     guessedNumbers.appendChild(toAdd);
@@ -49,7 +51,7 @@ function processAnswer(answer) {
         endGame(true);
     } else {
 
-        attemptsLeftElem.innerHTML = String(attemptsRemaining);
+        attemptsLeftElem.textContent = String(attemptsRemaining);
         if (attemptsRemaining === 0) {
             endGame(false);
         }
@@ -63,7 +65,7 @@ function processAnswer(answer) {
 }
 
 function showFeedback(feedback) {
-    feedbackMsg.innerHTML = feedback;
+    feedbackMsg.textContent = feedback;
 }
 
 function showResult(feedback) {
@@ -97,28 +99,36 @@ function handleSubmit(input) {
 }
 
 function endGame(win) {
-    gameStartSection.style = 'display: none;'
-    gameEndSection.style = 'display: flex;'
+    gameStartSection.style = 'display: none;';
+    gameEndSection.style = 'display: flex;';
 
     if (win) {
         showResult(`Great guess! <b>${targetNumber}</b> is the answer. You had ${attemptsRemaining} attempt(s) remaining.`);
     } else {
         showResult(`Too bad. The correct answer is <b>${targetNumber}</b>.`)
-    }
+    };
+
+    answerBtn.removeEventListener('click', submitAnswerButtonEvent);
+    guessInput.removeEventListener('keypress', submitAnswerKeypressEvent);
+
+    restartBtn.addEventListener('click', gameRestartEvent);
+    gameRestart = true;
 }
 
-// event listener
+function initEventListener() {
+    answerBtn.addEventListener('click', submitAnswerButtonEvent);
+    guessInput.addEventListener('keypress', submitAnswerKeypressEvent);
+}
 
-answerBtn.addEventListener('click', () => {handleSubmit(guessInput.value.trim())});
-guessInput.addEventListener('keypress', (e) => {
+// event listener variables
+
+const submitAnswerButtonEvent = () => {handleSubmit(guessInput.value.trim())};
+const submitAnswerKeypressEvent = (e) => {
     if (e.key == "Enter") {
         e.preventDefault();
         handleSubmit(guessInput.value.trim());
     }
-})
-
-restartBtn.addEventListener('click', () => {initGame()});
+}
+const gameRestartEvent = () => {initGame()};
 
 initGame();
-
-// console.log(Number.isInteger(2));
